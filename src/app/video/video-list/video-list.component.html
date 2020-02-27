@@ -1,0 +1,23 @@
+<div align="center">
+  <h3>
+    <mat-form-field class="example-form">
+      <input matInput placeholder="Dog or Cat video?" #box (keyup)="onKey(box.value)">
+    </mat-form-field>
+  </h3>
+</div>
+<div>
+  <mat-tab-group animationDuration="1000ms" mat-align-tabs="center">
+    <div *ngFor="let picture of pictures,let i = index">
+
+      <div *ngIf="picture.type===videoType">
+        <mat-tab label={{i}}>
+          <div align="center">
+            <iframe width="60%" height="100%" [src]="picture.url | safe" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+        </mat-tab>
+      </div>
+    </div>
+  </mat-tab-group>
+</div>
